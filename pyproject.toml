@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sim-verify"
+version = "0.2.0"
+description = "sim-verify — Bit-Exact Deterministic Simulation Verification, Input-Closure & Purity Certification, and Boundary Stream Integrity Toolkit"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+lz4 = ["lz4>=4.0"]
+
+[project.scripts]
+sim-verify-pcore = "sim_verify.pcore_run:main"
+sim-verify-partest = "sim_verify.partest:main"
+sim-verify-lint = "sim_verify.spec_lint:main"
+sim-verify-contract = "sim_verify.provenance:main"
+sim-verify-purity = "sim_verify.purity_verifier:main"
+sim-verify-mutate = "sim_verify.mutation_gate:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
